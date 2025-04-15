@@ -1,0 +1,9 @@
+name: cookiecutter_env
+channels:
+- conda-forge
+dependencies:
+# Core stack
+- python=3.10
+- pip
+- cookiecutter
+- pipx

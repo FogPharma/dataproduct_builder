@@ -1,0 +1,13 @@
+{
+    "project_name": "fog-cdd-chemprop",
+    "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "author_name": "Your name (or your organization/company/team)",
+    "author_email": "Your email address",
+    "description": "Chemprop ML experiments on Helicon properties.",
+    "s3_bucket": "fog-ml-dataset/esm2-finetuning",
+    "_copy_without_render":[
+            ".github/workflows/python-package.yml"
+    ]
+}
+
+
