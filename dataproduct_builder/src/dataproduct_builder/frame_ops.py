@@ -10,7 +10,7 @@ These functions are intended to be used as part of a larger data product creatio
 For columns manipulations see column_ops.py and row manipulations see row_ops_ops.py.
 """
 
-def aggregate_dataframe(df: pd.DataFrame, groupby_cols: Union(str, List) agg_dict: Dict) -> pd.DataFrame:
+def aggregate_dataframe(df: pd.DataFrame, groupby_cols: Union[str, List], agg_dict: Dict) -> pd.DataFrame:
     """
     Aggregates a DataFrame with custom aggregation functions and output column names.
 

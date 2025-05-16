@@ -12,7 +12,7 @@ row-column manipulations see grid_ops.py.
 """
 
 
-def assign_class_labels(df: pd.DataFrame, input_col:str, threshold: Union(str, Dict), output_col:str ) -> pd.DataFrame:
+def assign_class_labels(df: pd.DataFrame, input_col:str, threshold: Union[str, Dic]), output_col:str ) -> pd.DataFrame:
     """
     Assigns class labels to a DataFrame based on a single threshold or a list of thresholds.
 
