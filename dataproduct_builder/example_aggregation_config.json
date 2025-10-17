@@ -1,0 +1,162 @@
+{
+  "input_path": "your_data.csv",
+  "output_path": "aggregated_data.csv",
+  "steps": [
+    {
+      "operation": "aggregate_with_custom_functions",
+      "params": {
+        "groupby_cols": "Parent ID",
+        "agg_dict": {
+          "ID": {
+            "ID_aggregated": "set_join"
+          },
+          "Binding Site": {
+            "Binding_Site_aggregated": "set_join"
+          },
+          "Series": {
+            "Series_aggregated": "set_join"
+          },
+          "IC50 Geomean (TCF Axin FP Mosquito) (nM)": {
+            "IC50_median": "median"
+          },
+          "Bcat Single Cycle Biacore SPR KD (M)": {
+            "Bcat_KD_median": "median"
+          },
+          "CompFP VHL IC50 (nM) Geomean": {
+            "VHL_IC50_median": "median"
+          },
+          "Avg HRMS Solubility (uM)": {
+            "HRMS_Solubility_median": "median"
+          },
+          "Avg HRMS Solubility QC Score": {
+            "HRMS_QC_Score_median": "median"
+          },
+          "HRMS Local Mass Purity": {
+            "HRMS_Purity_median": "median"
+          },
+          "Passed HRMS Purity": {
+            "HRMS_Purity_Passed": "set_join"
+          },
+          "Avg LogD": {
+            "LogD_median": "median"
+          },
+          "Fog Sequence": {
+            "Fog_Sequence_first": "first"
+          },
+          "N Cap": {
+            "N_Cap_first": "first"
+          },
+          "C Cap": {
+            "C_Cap_first": "first"
+          },
+          "Hydrog": {
+            "Hydrog_aggregated": "set_join"
+          },
+          "RCM": {
+            "RCM_first": "first"
+          },
+          "Hypothesis": {
+            "Hypothesis_aggregated": "set_join"
+          },
+          "No of Batches": {
+            "No_of_Batches_first": "first"
+          },
+          "charge_pH75_total": {
+            "charge_pH75_median": "median"
+          },
+          "max_fused_rings": {
+            "max_fused_rings_median": "median"
+          },
+          "mcpPAINS": {
+            "mcpPAINS_median": "median"
+          },
+          "mol_volume": {
+            "mol_volume_median": "median"
+          },
+          "mol_weight": {
+            "mol_weight_median": "median"
+          },
+          "n_of_hba": {
+            "n_of_hba_median": "median"
+          },
+          "n_of_hbd": {
+            "n_of_hbd_median": "median"
+          },
+          "n_of_rotb": {
+            "n_of_rotb_median": "median"
+          },
+          "num_neg_charges_pH75": {
+            "num_neg_charges_median": "median"
+          },
+          "num_pos_charges_pH75": {
+            "num_pos_charges_median": "median"
+          },
+          "SMILES": {
+            "SMILES_first": "first"
+          },
+          "Exact MW (Da)": {
+            "Exact_MW_median": "median"
+          },
+          "Gene (Annotation)": {
+            "Gene_aggregated": "set_join"
+          },
+          "Domain": {
+            "Domain_aggregated": "set_join"
+          },
+          "Chirality": {
+            "Chirality_first": "first"
+          },
+          "Class": {
+            "Class_aggregated": "set_join"
+          },
+          "Origin": {
+            "Origin_aggregated": "set_join"
+          },
+          "Modality": {
+            "Modality_aggregated": "set_join"
+          },
+          "padded_sequence": {
+            "padded_sequence_first": "first"
+          },
+          "plssar_sequence": {
+            "plssar_sequence_first": "first"
+          },
+          "AA-5": {"AA-5_first": "first"},
+          "AA-4": {"AA-4_first": "first"},
+          "AA-3": {"AA-3_first": "first"},
+          "AA-2": {"AA-2_first": "first"},
+          "AA-1": {"AA-1_first": "first"},
+          "AA0": {"AA0_first": "first"},
+          "AA1": {"AA1_first": "first"},
+          "AA2": {"AA2_first": "first"},
+          "AA3": {"AA3_first": "first"},
+          "AA4": {"AA4_first": "first"},
+          "AA5": {"AA5_first": "first"},
+          "AA6": {"AA6_first": "first"},
+          "AA7": {"AA7_first": "first"},
+          "AA8": {"AA8_first": "first"},
+          "AA9": {"AA9_first": "first"},
+          "AA10": {"AA10_first": "first"},
+          "AA11": {"AA11_first": "first"},
+          "AA12": {"AA12_first": "first"},
+          "AA13": {"AA13_first": "first"},
+          "AA14": {"AA14_first": "first"},
+          "AA15": {"AA15_first": "first"},
+          "AA16": {"AA16_first": "first"},
+          "AA17": {"AA17_first": "first"},
+          "AA18": {"AA18_first": "first"},
+          "AA19": {"AA19_first": "first"},
+          "AA20": {"AA20_first": "first"},
+          "AA21": {"AA21_first": "first"},
+          "AA22": {"AA22_first": "first"},
+          "AA23": {"AA23_first": "first"},
+          "AA24": {"AA24_first": "first"},
+          "AA25": {"AA25_first": "first"}
+        },
+        "custom_functions": {
+          "set_join": "lambda x: ', '.join(sorted(str(v) for v in set(x) if pd.notna(v)))"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "input_path": "data/peptide_data.csv",
+  "output_path": "data/processed_peptides.csv",
+  "steps": [
+    {
+      "operation": "drop_duplicates",
+      "params": {
+        "subset": ["sequence_id"],
+        "keep": "first"
+      }
+    },
+    {
+      "operation": "filter_rows",
+      "params": {
+        "column": "activity",
+        "operator": ">",
+        "value": 0.3
+      }
+    },
+    {
+      "operation": "concat_and_pad_aas",
+      "params": {
+        "cols_to_concat": ["Ncap", "AA1", "AA2", "AA3", "AA4", "AA5", "AA6", "AA7", "AA8", "AA9", "AA10", "AA11", "AA12", "AA13", "AA14", "AA15", "AA16", "AA17", "AA18", "AA19", "Ccap"],
+        "output_col": "sequence"
+      }
+    },
+    {
+      "operation": "add_punctuation_staples_and_stitches",
+      "params": {
+        "col_name": "sequence",
+        "output_col": "sequence_with_punctuation"
+      }
+    },
+    {
+      "operation": "concatenate_stitches_and_staples",
+      "params": {
+        "col_name": "sequence_with_punctuation",
+        "output_col": "sequence_processed"
+      }
+    },
+    {
+      "operation": "assign_class_labels",
+      "params": {
+        "input_col": "activity",
+        "threshold": [0.3, 0.6, 0.8],
+        "output_col": "activity_class"
+      }
+    },
+    {
+      "operation": "sort_rows",
+      "params": {
+        "by": "activity",
+        "ascending": false
+      }
+    },
+    {
+      "operation": "sample_rows",
+      "params": {
+        "n": 1000,
+        "random_state": 42
+      }
+    },
+    {
+      "operation": "remove_empty_rows",
+      "params": {
+        "subset": ["sequence_processed", "activity"]
+      }
+    }
+  ]
+}

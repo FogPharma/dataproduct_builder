@@ -1,0 +1,35 @@
+{
+  "input_path": "data/input.csv",
+  "output_path": "data/output.csv",
+  "steps": [
+    {
+      "operation": "drop_duplicates",
+      "params": {
+        "subset": ["id"],
+        "keep": "first"
+      }
+    },
+    {
+      "operation": "filter_rows",
+      "params": {
+        "column": "score",
+        "operator": ">=",
+        "value": 0.5
+      }
+    },
+    {
+      "operation": "sort_rows",
+      "params": {
+        "by": "score",
+        "ascending": false
+      }
+    },
+    {
+      "operation": "sample_rows",
+      "params": {
+        "frac": 0.8,
+        "random_state": 123
+      }
+    }
+  ]
+}

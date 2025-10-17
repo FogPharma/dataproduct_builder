@@ -1,0 +1,22 @@
+{
+  "input_path": "data/input.csv",
+  "output_path": "data/aggregated_with_count.csv",
+  "steps": [
+    {
+      "operation": "aggregate_with_column_functions",
+      "params": {
+        "groupby_cols": "Parent ID",
+        "column_functions": {
+          "ID": "set_join",
+          "Score": "median",
+          "Name": "first",
+          "Category": "set_join",
+          "Value": "mean",
+          "Count": "sum"
+        },
+        "add_count_column": true,
+        "count_column_name": "rows_aggregated"
+      }
+    }
+  ]
+}

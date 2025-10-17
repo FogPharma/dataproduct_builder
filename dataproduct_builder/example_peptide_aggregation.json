@@ -1,0 +1,12 @@
+{
+  "input_path": "data/peptide_data.csv",
+  "output_path": "data/aggregated_peptides.csv",
+  "steps": [
+    {
+      "operation": "aggregate_peptide_data",
+      "params": {
+        "groupby_col": "Parent ID"
+      }
+    }
+  ]
+}
