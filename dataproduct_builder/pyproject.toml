@@ -100,37 +100,63 @@ where = ["src"]
 #namespaces = false
 
 [project]
-name = "{{ cookiecutter.project_name }}"
+name = "dataproduct-builder"
 version = "0.1.0"
 dependencies = [
-'joblib',
-'matplotlib',
-'pandas',
-'jupyterlab',
-'seaborn',
-'scipy',
-'scikit-learn',
-'tqdm',
-'build',
-'openpyxl',
-'pytest',
-'twine',
-'typer',
-
-
+    'pandas>=1.5.0',
+    'numpy>=1.21.0',
+    'typer>=0.9.0',
+    'pyyaml>=6.0',
+    'openpyxl>=3.0.0',
+    'scikit-learn>=1.0.0',
+    'scipy>=1.8.0',
+    'matplotlib>=3.5.0',
+    'seaborn>=0.11.0',
+    'tqdm>=4.64.0',
+    'joblib>=1.1.0',
+    'jupyterlab>=3.0.0',
+    'pytest>=7.0.0',
+    'build>=0.8.0',
+    'twine>=4.0.0',
 ]
 authors = [
-  { name="{{ cookiecutter.author_name }}", email="{{ cookiecutter.author_email }}" },
+    { name="FogPharma Data Science Team", email="nmathai@parabilismed.com" },
 ]
-description = "{{ cookiecutter.description }}"
+description = "A comprehensive data processing pipeline for peptide sequence analysis and general data manipulation"
 readme = "README.md"
 requires-python = ">=3.10"
 classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: cheminformatics",
+    "Topic :: Scientific/Engineering :: Information Analysis",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 
 [project.urls]
-Homepage = "https://github.com/FogPharma/{{ cookiecutter.project_name }}/"
-Issues = "https://github.com/FogPharma/{{ cookiecutter.project_name }}/issues"
+Homepage = "https://github.com/FogPharma/dataproduct_builder/"
+Issues = "https://github.com/FogPharma/dataproduct_builder/issues"
+Repository = "https://github.com/FogPharma/dataproduct_builder.git"
+
+[project.scripts]
+dataproduct-builder = "dataproduct_builder.cli:app"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=22.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "pre-commit>=2.20.0",
+]
+docs = [
+    "sphinx>=5.0.0",
+    "sphinx-rtd-theme>=1.0.0",
+    "myst-parser>=0.18.0",
+]
